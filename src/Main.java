@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        int [] result = new int[7];
-        result = shejk(new int[]{9,8,3,5,6,0,3});
+        int [] result;
+        result = shejk(new int[]{13,12,11,10,9,8,7,6,5,4,3,2});
         for (int a:result) {
-            System.out.print(a);
+            System.out.print(" " + a);
         }
     }
     public static int recursion (int m, int n){
@@ -16,18 +16,6 @@ public class Main {
         else return n%10 + sumNum(n/10);
     }
     public static int[] sortArr(int arr []){
-        /*int temp ;
-        for (int j = 0; j< arr.length/2; j++) {
-            for (int i = 0; i < arr.length / 2; i++) {
-                if (arr[i] > arr[arr.length - 1]) {
-                    temp = arr[arr.length - 1];
-                    arr[arr.length - 1] = arr[i];
-                    arr[i] = temp;
-                }
-            }
-        }
-        return arr;*/
-        int min = 0;
         int temp;
         for (int j = 0; j< arr.length; j++) {
             for (int i = 0; i < arr.length - 1; i++) {
@@ -43,22 +31,18 @@ public class Main {
     public static int[] shejk(int arr[]){
         int temp;
         for (int j = 0; j< arr.length/2; j++) {
-            if(j%2 == 0) {
-                for (int i = j; i < arr.length - 1-j; i++) {
-                    if (arr[i] > arr[i + 1]) {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
-                    }
+            for (int i = j; i < arr.length - 1-j; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    temp = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = temp;
                 }
             }
-            else {
-                for (int i = j; i < arr.length - j; i++) {
-                    if (arr[arr.length-2-i] > arr[arr.length-1-i]) {
-                        temp = arr[arr.length-1-i];
-                        arr[arr.length-1-i] = arr[arr.length-2-i];
-                        arr[arr.length-2-i] = temp;
-                    }
+            for (int i = j; i < arr.length - 1-j; i++) {
+                if (arr[arr.length-2-i] > arr[arr.length-1-i]) {
+                    temp = arr[arr.length-1-i];
+                    arr[arr.length-1-i] = arr[arr.length-2-i];
+                    arr[arr.length-2-i] = temp;
                 }
             }
         }
